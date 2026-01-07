@@ -37,13 +37,13 @@ Dentro del archivo README.md vas a encontrar las instrucciones para levantarla d
 
 ### 1. Autenticación y Splash Screen
 
-- Implementar una **Splash Screen** inicial
 - Completar la implementación del **Login**, utilizando **React Query** para la comunicación con la API
 - Al autenticarse correctamente:
   - Persistir el token en el dispositivo (mecanismo de almacenamiento a elección)
 - Al iniciar la aplicación:
   - Si existe un token válido almacenado, se deberá ingresar directamente a la aplicación
   - En caso contrario, se deberá mostrar la pantalla de Login
+- **Splash Screen** (parcialmente implementada): Lo mencionado anteriormente se deberá ejecutar mientras se muestra la splash screen.
 
 ---
 
