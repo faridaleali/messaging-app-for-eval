@@ -16,3 +16,6 @@ export const getChatPagination = (state: RootState) =>
 
 export const getMessageInput = (state: RootState) =>
   state.chatStatus.messageInput;
+
+export const getIsLoadingMore = (state: RootState) =>
+  state.chatStatus.isLoadingMore;

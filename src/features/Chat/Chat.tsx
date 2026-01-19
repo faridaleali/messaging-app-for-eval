@@ -1,9 +1,8 @@
 import { useCallback, useLayoutEffect } from "react";
-import { StyleSheet } from "react-native";
+import { View } from "react-native";
 
 import { Message } from "../../api/domain/chat/chat.types";
 import Paginated from "../../api/types/paginated";
-import { ThemedView } from "../../components/ThemedView/ThemedView";
 import { DEFAULT_LIMIT, DEFAULT_OFFSET } from "../../constants/pagination";
 import { useGetEvents } from "../../hooks/useGetEvents";
 import { setChatEvents, setChatPagination } from "../../redux/chat";
@@ -30,18 +29,12 @@ export default function Chat() {
   }, []);
 
   return (
-    <ThemedView style={styles.container}>
+    <View className="flex-1">
       <Header />
 
       {!isPending ? <Body /> : <Loading />}
 
       <Footer />
-    </ThemedView>
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});

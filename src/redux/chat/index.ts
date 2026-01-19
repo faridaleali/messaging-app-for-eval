@@ -13,7 +13,9 @@ export const chatsSlice = createSlice({
 
 export const {
   setChatEvents,
+  appendChatEvents,
   setChatPagination,
+  setLoadingMore,
   setMessageInput,
   setAddEvent,
 } = chatsSlice.actions;

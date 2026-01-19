@@ -7,4 +7,6 @@ export interface ChatsSlice {
   pagination?: Pagination;
 
   messageInput?: string;
+
+  isLoadingMore?: boolean;
 }

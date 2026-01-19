@@ -1,27 +1,26 @@
 import React from "react";
-import { ImageBackground, StyleSheet } from "react-native";
+import { Image, View } from "react-native";
 
 function Avatar() {
   return (
-    <ImageBackground
-      source={require("../../../assets/images/chat-avatar.png")}
-      style={styles.avatarContainer}
-      resizeMode="cover"
-    ></ImageBackground>
+    <View
+      style={{
+        width: 48,
+        height: 48,
+        borderRadius: 24,
+        overflow: "hidden",
+        borderWidth: 1,
+        borderColor: "#fff",
+        backgroundColor: "transparent",
+      }}
+    >
+      <Image
+        source={require("../../../assets/images/chat-avatar.png")}
+        style={{ width: "100%", height: "100%" }}
+        resizeMode="cover"
+      />
+    </View>
   );
 }
 
 export default React.memo(Avatar);
-
-const styles = StyleSheet.create({
-  avatarContainer: {
-    flexDirection: "row",
-    borderRadius: 999,
-    width: 50,
-    height: 50,
-    overflow: "hidden",
-    backgroundColor: "transparent",
-    borderWidth: 1,
-    borderColor: "#fff",
-  },
-});

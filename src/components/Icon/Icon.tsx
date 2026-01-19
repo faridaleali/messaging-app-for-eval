@@ -21,6 +21,19 @@ const MAPPING = {
   "settings.fill": "settings",
   "check.fill": "check",
   "send.fill": "send",
+  photo: "photo",
+  "photo.fill": "photo",
+  "xmark.circle.fill": "cancel",
+  "rectangle.portrait.and.arrow.right": "logout",
+  // Nuevos íconos para Action Sheet y cámara
+  "plus.circle.fill": "add-circle",
+  camera: "camera-alt",
+  "photo.on.rectangle": "photo-library",
+  doc: "description",
+  mic: "mic",
+  xmark: "close",
+  "exclamationmark.triangle.fill": "warning",
+  "arrow.triangle.2.circlepath": "flip-camera-android",
 } as IconMapping;
 
 /**

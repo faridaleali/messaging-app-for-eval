@@ -10,7 +10,7 @@ export default class ChatRepository extends ApiRepository {
 
   public async getEvents<T>(
     limit: number,
-    offset: number
+    offset: number,
   ): Promise<Paginated<T>> {
     const data: RequestData = {
       endpoint: `${this.endpoint}`,
@@ -29,9 +29,34 @@ export default class ChatRepository extends ApiRepository {
     return HttpService.postAsync(data);
   }
 
-  public async sendImageMessage<T>(): Promise<T> {
+  public async sendImageMessage<T>(
+    imageUri: string,
+    imageName: string,
+    imageSize: number,
+  ): Promise<T> {
+    const formData = new FormData();
+
+    // Para web: fetch el blob de la URI
+    if (imageUri.startsWith("blob:") || imageUri.startsWith("data:")) {
+      const response = await fetch(imageUri);
+      const blob = await response.blob();
+      formData.append("image", blob, imageName);
+    } else {
+      // Para React Native
+      const imageFile = {
+        uri: imageUri,
+        type: "image/jpeg",
+        name: imageName,
+      } as unknown as Blob;
+      formData.append("image", imageFile);
+    }
+
+    formData.append("imageName", imageName);
+    formData.append("imageSize", imageSize.toString());
+
     const data: RequestData = {
-      endpoint: `${this.endpoint}/send-text`,
+      endpoint: `${this.endpoint}/send-image`,
+      body: formData,
     };
 
     return HttpService.postAsync(data);

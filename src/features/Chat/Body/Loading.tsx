@@ -1,32 +1,18 @@
 import React from "react";
-import { ActivityIndicator, ImageBackground, StyleSheet } from "react-native";
-import { Text } from "../../../components/Text/Text";
-import { Color } from "../../../constants/colors";
+import { ActivityIndicator, ImageBackground, Text } from "react-native";
 
 function Loading() {
   return (
     <ImageBackground
       source={require("../../../assets/images/chat-bg-pattern.jpg")}
-      style={styles.bodyContainer}
+      className="flex-1 w-full items-center justify-center gap-2"
       resizeMode="repeat"
     >
-      <ActivityIndicator size="large" color={Color.PRIMARY_500} />
+      <ActivityIndicator size="large" color="#083045" />
 
-      <Text lightColor="#333" type="default">
-        Cargando...
-      </Text>
+      <Text className="text-gray-700">Cargando...</Text>
     </ImageBackground>
   );
 }
 
 export default React.memo(Loading);
-
-const styles = StyleSheet.create({
-  bodyContainer: {
-    flex: 1,
-    width: "100%",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 8,
-  },
-});

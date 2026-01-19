@@ -31,7 +31,7 @@ function Send() {
   const onSuccess = useCallback((r: SendMessageResponse) => {
     dispatch(setAddEvent(r.data));
 
-    dispatch(setMessageInput(undefined));
+    dispatch(setMessageInput(""));
   }, []);
 
   return (

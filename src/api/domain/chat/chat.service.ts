@@ -11,7 +11,7 @@ export default class ChatService {
 
   public async getEvents(
     limit: number,
-    offset: number
+    offset: number,
   ): Promise<Paginated<Message>> {
     const chats = await this.chatRepository.getEvents<Message>(limit, offset);
 
@@ -21,6 +21,21 @@ export default class ChatService {
   public async sendTextMessage(text: string): Promise<SendMessageResponse> {
     const message =
       await this.chatRepository.sendTextMessage<SendMessageResponse>(text);
+
+    return message;
+  }
+
+  public async sendImageMessage(
+    imageUri: string,
+    imageName: string,
+    imageSize: number,
+  ): Promise<SendMessageResponse> {
+    const message =
+      await this.chatRepository.sendImageMessage<SendMessageResponse>(
+        imageUri,
+        imageName,
+        imageSize,
+      );
 
     return message;
   }
